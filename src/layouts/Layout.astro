@@ -1,0 +1,53 @@
+---
+export interface Props {
+	title: string;
+	overview: string;
+}
+
+const { title, overview } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/avatar.png">
+		<meta name="description" content={overview} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-[#1c1917]">
+		<slot />
+	</body>
+</html>
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+body{
+	font-family: Karla;
+}
+body {
+  background-size: 30px 30px;
+  background-image:
+    linear-gradient(to right, rgba(150, 150, 150, .1) 0.05rem, transparent 0.05rem),
+    linear-gradient(to bottom, rgba(150, 150, 150, .1)  0.05rem, transparent 0.05rem);
+}
+body::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+.headings{
+	font-family: Abel;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1d1d1f;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #111112;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+
+}
+
+</style>

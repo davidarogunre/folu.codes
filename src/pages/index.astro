@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { TiLocationArrowOutline } from "react-icons/ti/"
+import {BsPerson} from "react-icons/bs"
+import {AiOutlineClockCircle} from "react-icons/ai"
+import {IoLogoPython} from "react-icons/io"
+import {DiJavascript1} from "react-icons/di"
+import {SiTypescript, SiTrpc, SiPostgresql, SiDiscord, SiTwitter, SiLinkedin, SiMedium, SiTailwindcss, SiNextdotjs, SiFastapi} from "react-icons/si"
+import {FaSpotify, FaReact} from "react-icons/fa"
+import {HiOutlineMail} from "react-icons/hi"
+import {RiRocketLine} from "react-icons/ri"
+
+---
+
+<Layout title="Folu" overview="David - Full Stack Developer">
+	<main class="xs:w-11/12 md:w-[650px] mx-auto flex flex-col gap-12">
+		<!--General Information -->
+
+		<div id="generalinfo" class="w-full flex justify-between leading-7 tracking-wide text-[#dac581] mt-[65px]">
+		<div>
+			<div>
+			<div class="flex text-[15px] gap-1"><span class="relative top-[5px]"><TiLocationArrowOutline/></span>Bayelsa, Nigeria</div>
+			<div class="flex text-[15px] gap-1"><span class="relative top-[5px]"><BsPerson/></span><div><span  id="age"></span>y/o Developer and Innovator</div></div>
+			<div class="flex text-[15px] gap-1"><span class="relative top-[7px]"><AiOutlineClockCircle/></span> <div>It is currently <span id="time"></span></div></div>
+			<a class="" href="mailto:davidarogunre@gmail.com"><div class="flex text-[15px] gap-1"><span class="relative top-[7px]"><HiOutlineMail/></span> <div>davidarogunre@gmail.com</div></div></a>
+
+			<div></div>
+		</div>
+		</div>
+		</div>
+
+		<!--Who am I -->
+		<div>
+			<div class="flex text-[35px] headings text-[#e8dbee]">Hey, I'm David👋</div>
+			<div class="text-[18px] text-white">
+				You can call me Folu, a 15 y/o trying get the most out of life. I'm a fullstack developer that mainly works with Nextjs and other backend frameworks depending on the project.
+			I'm what some would call a <a class="text-[#dac581]" target="_blank" href="https://en.wikipedia.org/wiki/Philomath">philomath</a>. My other hobbies include badminton and playing the keyboard(instrument).
+			</div>
+		</div>
+		<!--Skills and Tech -->
+		<div>
+			<div class="text-[35px] text-white headings">What I can use</div>
+			<div class="md:grid md:grid-cols-3 xs:flex xs:flex-col leading-loose">
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><IoLogoPython/></span>Python</div>
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><SiFastapi width="15px" height="15px"/></span>FastAPI</div>
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><DiJavascript1/></span>Javascript</div>
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><FaReact/></span>ReactJS</div>
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><SiNextdotjs/></span>NextJS</div>
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><RiRocketLine/></span>AstroJS</div>
+			<div class="flex items-center gap-1 text-[18px] text-white font-medium"><span><SiTypescript/></span>TypeScript</div>
+			<div class="text-[18px] flex items-center gap-2 text-white font-medium"><SiPostgresql/>PostgreSQL</div>
+			<div class="text-[18px] flex items-center gap-1 text-white font-medium"><SiTailwindcss/>TailwindCSS</div>
+			<div class="text-[18px] flex items-center gap-1 text-white font-medium"><SiTrpc size={22}/>tRPC(Learning)</div>
+
+
+		</div>
+		</div>
+		<div>
+			<div class="text-[35px] text-white headings">Projects</div>
+			<div class="text-white font-medium text-sm md:text-lg">
+				<li>MotionContacts - Contacts Application like Google Contacts</li>
+				<li>Fret- Very Simplistic Command Tool for Budgeting</li>
+				<li>Discord Arbritrage Bot (Private) - Discord Arbritrage Bot using Odds API</li>
+				<div></div>
+			</div>
+
+		</div>
+		<!--Socials -->
+		<div class="mb-[30px]">
+			<div class="text-[35px] text-white headings">Socials</div>
+			<div class="flex gap-3">
+			<div><a href="https://discord.com/users/folucodes" target="_blank"><SiDiscord size={25} color="white"/></a></div>
+			<div><a href="https://twitter.com/davidarogunre" target="_blank"><SiTwitter size={25} color="white"/></a></div>
+			<div><a href="https://www.linkedin.com/in/david-arogunre-78aa67177/" target="_blank"><SiLinkedin size={25} color="white"/></a></div>
+			<div><a href="https://medium.com/@itsfolu" target="_blank"><SiMedium size={25} color="white"/></a></div>
+
+		</div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	function getDateNow(){
+		return new Date().toLocaleString('en-US', {
+            timeZone: 'Africa/Lagos',
+            weekday: "long",
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            timeZoneName: 'short'
+        });
+    }
+	let ctime = getDateNow()
+	let time = document.getElementById("time")
+	time.innerHTML = ctime
+	setInterval(()=>{
+		let ctime = getDateNow()
+		time.innerHTML = ctime
+	}, 1000)
+
+
+	function getAge(){
+		let currentDate = new Date()
+		let birthDate = new Date("04/07/2008")
+		let difference = currentDate.getTime() - birthDate.getTime()
+		let age = document.getElementById("age")
+		let value = String(Math.floor(difference/(1000*60*60*24*365)))
+		age.innerText = value + "   "
+	}
+getAge()
+
+</script>
